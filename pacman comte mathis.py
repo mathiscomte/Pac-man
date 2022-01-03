@@ -117,6 +117,7 @@ def affichePac(numero):
     """
     fenetre.blit(tiles[numero],(pacX * TITLE_SIZE,pacY * TITLE_SIZE))
 
+
 def afficheScore(score):
     """
     affiche le score
@@ -137,6 +138,7 @@ def calculScore():
     else:win='n'
     return win
 
+
 def afficheVies(vies):
     if vies>=1:
         fenetre.blit(tiles[14],(24* TITLE_SIZE,27 * TITLE_SIZE))
@@ -144,8 +146,6 @@ def afficheVies(vies):
         fenetre.blit(tiles[14],(25* TITLE_SIZE,27 * TITLE_SIZE))
     if vies>=3:
         fenetre.blit(tiles[14],(26* TITLE_SIZE,27 * TITLE_SIZE))
-
-
 
 
 def rechercheFantome(fantome,position): #recherche les coord du fantome dans la liste fantome
@@ -167,8 +167,6 @@ def rechercheFantome(fantome,position): #recherche les coord du fantome dans la 
             pacX=13
             pacY=22
             imgpac=14
-
-
     return coodFantome          #les coord du fantome x et y sont dans un tuple coodFantome
 
 def deplaceFantome(fantome):
@@ -190,18 +188,10 @@ def deplaceFantome(fantome):
     fenetre.blit(tiles[15],(posfX * TITLE_SIZE,posfY * TITLE_SIZE)) #affichage du fantome
     frameRateCounterFantome+=1                        #incrémentation du compteur de vitesse
 
-def initialise():
-    global pacX
-    global pacY
-
-
-
 
 winAfficher=font.render("You win the game !", True, (255, 255, 0))
 loseAfficher=font.render("Game Over", True, (255,0, 0))
 playAfficher=font.render("Play again?", True, (0, 255, 0))
-
-
 
 chargetiles(tiles)  #chargement des images
 imgpac=14
@@ -283,11 +273,6 @@ while loop==True:
                 print("fond noir")
             print(pacX,pacY)
 
-
-
-
-
-
     fenetre.fill((0,0,0))   #efface la fenetre
     afficheNiveau(niveau)   #affiche le niveau
     affichePac(imgpac)          #affiche la pacman et le score
@@ -295,6 +280,7 @@ while loop==True:
     afficheScore(compteurBilles)
     afficheVies(vies)
     calculScore()
+
     if calculScore()=='o' or vies==0:
         if calculScore()=='o':
             fenetre.blit(winAfficher,(360,410))
